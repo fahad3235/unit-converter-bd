@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit Converter BD — একক রূপান্তর</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div>
+      <h1 id="app-title">Unit Converter BD</h1>
+      <p class="tagline" id="app-tagline">Bangladesh land, weight, length &amp; volume units</p>
+    </div>
+    <button id="lang-toggle" class="lang-btn" aria-label="Switch language">বাংলা</button>
+  </div>
+</header>
+
+<nav class="wrap tabs" id="cat-tabs" role="tablist">
+  <button class="tab active" data-cat="land" role="tab" aria-selected="true"><span data-i18n="cat_land">Land</span></button>
+  <button class="tab" data-cat="gold" role="tab" aria-selected="false"><span data-i18n="cat_gold">Gold &amp; Weight</span></button>
+  <button class="tab" data-cat="length" role="tab" aria-selected="false"><span data-i18n="cat_length">Length</span></button>
+  <button class="tab" data-cat="volume" role="tab" aria-selected="false"><span data-i18n="cat_volume">Volume</span></button>
+</nav>
+
+<main class="wrap">
+  <section class="card converter" aria-label="Converter">
+    <label class="field">
+      <span data-i18n="amount">Amount</span>
+      <input id="amount" type="text" inputmode="decimal" autocomplete="off" placeholder="1">
+    </label>
+
+    <div class="row">
+      <label class="field grow">
+        <span data-i18n="from">From</span>
+        <select id="from-unit"></select>
+      </label>
+      <button id="swap" class="swap" title="Swap" aria-label="Swap units">⇄</button>
+      <label class="field grow">
+        <span data-i18n="to">To</span>
+        <select id="to-unit"></select>
+      </label>
+    </div>
+
+    <label class="field narrow">
+      <span data-i18n="precision">Decimal places</span>
+      <select id="precision">
+        <option value="0">0</option>
+        <option value="2">2</option>
+        <option value="3" selected>3</option>
+        <option value="4">4</option>
+        <option value="6">6</option>
+      </select>
+    </label>
+
+    <div id="result" class="result" aria-live="polite"></div>
+    <div id="error" class="error" role="alert" hidden></div>
+  </section>
+
+  <section class="card reference" aria-label="Reference">
+    <h2 data-i18n="ref_title">Reference table</h2>
+    <table id="ref-table">
+      <thead><tr><th><span data-i18n="ref_unit">Unit</span></th><th><span data-i18n="ref_base">In base unit</span></th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <p class="note" id="cat-note"></p>
+  </section>
+</main>
+
+<footer class="wrap footer">
+  <p data-i18n="footer">Fully offline — all conversions run in your browser.</p>
+</footer>
+
+<script src="js/factors.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
